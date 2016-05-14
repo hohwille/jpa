@@ -1,0 +1,14 @@
+= Mature Modular Meta-framework (mmm)
+
+image:https://raw.github.com/m-m-m/mmm/master/src/site/resources/images/logo.png[logo]
+
+*Welcome to the wonderful world of http://m-m-m.sourceforge.net/index.html[mmm]*
+
+== mmm-jpa-main
+This module is part of link:../../..#mmm-jpa[mmm-jpa] and brings advanced features on top of the Java Persistence API (JPA):
+
+* link:../../../../util/query/#mmm-util-query[mmm-util-query] support for JPA.
+* https://m-m-m.github.io/maven/apidocs/net/sf/mmm/jpa/api/package-summary.html#package.description[and much more...]
+
+In general you might want to use [QueryDSL](http://www.querydsl.com/).
+However, if you are using [mmm-util-property](../mmm-util-property/README.md) then mmm-util-query will make your life easier as you neither need code-generation nor dynamic asm code using Alias.$.
