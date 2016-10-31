@@ -8,8 +8,6 @@ import net.sf.mmm.jpa.api.entity.AbstractEntity;
 
 /**
  * Implementation of {@link Contact} as JPA {@link Entity}.
- *
- * @author hohwille
  */
 @Entity
 public class ContactEntity extends AbstractEntity implements Contact {

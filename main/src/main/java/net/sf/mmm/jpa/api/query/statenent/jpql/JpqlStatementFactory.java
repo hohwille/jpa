@@ -13,7 +13,7 @@ import net.sf.mmm.util.query.api.statement.StatementFactory;
  * There is no {@link FeatureInsert INSERT support} as JPQL does not have insert statements.
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
 @ComponentSpecification
 public interface JpqlStatementFactory extends StatementFactory {
@@ -25,8 +25,7 @@ public interface JpqlStatementFactory extends StatementFactory {
   JpqlSelectStatement<Object[]> selectFrom(EntityAlias<?> alias, PropertyPath<?>... paths);
 
   @Override
-  <E> JpqlSelectStatement<E> selectFrom(EntityAlias<?> alias, Class<E> toClass,
-      PropertyPath<?>... constructorArgs);
+  <E> JpqlSelectStatement<E> selectFrom(EntityAlias<?> alias, Class<E> toClass, PropertyPath<?>... constructorArgs);
 
   @Override
   <E> JpqlDeleteStatement<E> deleteFrom(EntityAlias<E> alias);

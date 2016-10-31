@@ -26,7 +26,7 @@ import net.sf.mmm.util.query.base.statement.AbstractStatementFactory;
  * This is the interface
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
 public class JpqlStatementFactoryImpl extends AbstractStatementFactory implements JpqlStatementFactory {
 
@@ -115,8 +115,7 @@ public class JpqlStatementFactoryImpl extends AbstractStatementFactory implement
     Class<E> resultType = alias.getResultType();
     Class<?> entityType = alias.getEntityType();
     E prototype = alias.getPrototype();
-    if ((resultType != null) && (prototype != null) && (entityType != resultType)
-        && (!resultType.isAssignableFrom(entityType))) {
+    if ((resultType != null) && (prototype != null) && (entityType != resultType) && (!resultType.isAssignableFrom(entityType))) {
       mapper = x -> (E) this.beanMapper.toBean(x, (Bean) prototype);
     }
     return new JpqlSelectStatementImpl<>(this.entityManager, this.dialect, alias, mapper);
@@ -129,8 +128,7 @@ public class JpqlStatementFactoryImpl extends AbstractStatementFactory implement
   }
 
   @Override
-  public <E> JpqlSelectStatement<E> selectFrom(EntityAlias<?> alias, Class<E> toClass,
-      PropertyPath<?>... constructorArgs) {
+  public <E> JpqlSelectStatement<E> selectFrom(EntityAlias<?> alias, Class<E> toClass, PropertyPath<?>... constructorArgs) {
 
     return new JpqlSelectStatementImpl<>(this.entityManager, this.dialect, alias, null, toClass, constructorArgs);
   }
@@ -147,8 +145,7 @@ public class JpqlStatementFactoryImpl extends AbstractStatementFactory implement
     return new JpqlUpdateStatementImpl<>(this.entityManager, this.dialect, alias);
   }
 
-  static void assignParameters(Query query, AbstractStatement<?, ?> statement, Long firstResult,
-      Integer maxResults) {
+  static void assignParameters(Query query, AbstractStatement<?, ?> statement, Long firstResult, Integer maxResults) {
 
     if (firstResult != null) {
       query.setFirstResult(firstResult.intValue());

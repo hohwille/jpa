@@ -15,8 +15,6 @@ import net.sf.mmm.util.validation.base.Mandatory;
 
 /**
  * {@link EntityBean} for {@link Contact}.
- *
- * @author hohwille
  */
 public interface ContactBean extends EntityBean, Contact {
 

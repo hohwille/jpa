@@ -15,8 +15,6 @@ import net.sf.mmm.util.bean.impl.spring.UtilBeanSpringConfig;
 
 /**
  * Spring {@link Configuration} for the tests.
- *
- * @author hohwille
  */
 @Configuration
 @Import(UtilBeanSpringConfig.class)

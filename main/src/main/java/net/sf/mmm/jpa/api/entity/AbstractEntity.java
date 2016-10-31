@@ -9,9 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
-import net.sf.mmm.util.bean.api.entity.Entity;
-import net.sf.mmm.util.bean.api.id.GenericId;
-import net.sf.mmm.util.bean.api.id.Id;
+import net.sf.mmm.util.data.api.entity.Entity;
+import net.sf.mmm.util.data.api.id.GenericId;
+import net.sf.mmm.util.data.api.id.Id;
 
 /**
  * Base implementation of a JPA {@link Entity}.

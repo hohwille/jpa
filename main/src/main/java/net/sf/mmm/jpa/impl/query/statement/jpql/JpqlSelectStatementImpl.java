@@ -26,10 +26,9 @@ import net.sf.mmm.util.query.base.statement.SqlDialect;
  * @param <T> the generic type of the {@link #execute(String, QueryMode) internal results}. See {@link #getMapper()}.
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
-public class JpqlSelectStatementImpl<E, T> extends AbstractSelectStatement<E, JpqlSelectStatement<E>, T>
-    implements JpqlSelectStatement<E> {
+public class JpqlSelectStatementImpl<E, T> extends AbstractSelectStatement<E, JpqlSelectStatement<E>, T> implements JpqlSelectStatement<E> {
 
   private final EntityManager entityManager;
 
@@ -41,8 +40,7 @@ public class JpqlSelectStatementImpl<E, T> extends AbstractSelectStatement<E, Jp
    * @param alias - see {@link #getAlias()}.
    * @param mapper - see {@link #getMapper()}.
    */
-  public JpqlSelectStatementImpl(EntityManager entityManager, JpqlDialect dialect, EntityAlias<E> alias,
-      Function<T, E> mapper) {
+  public JpqlSelectStatementImpl(EntityManager entityManager, JpqlDialect dialect, EntityAlias<E> alias, Function<T, E> mapper) {
     super(dialect, alias, mapper);
     this.entityManager = entityManager;
   }
@@ -59,8 +57,8 @@ public class JpqlSelectStatementImpl<E, T> extends AbstractSelectStatement<E, Jp
    * @param constructorArgs - see
    *        {@link net.sf.mmm.util.query.api.statement.StatementFactory#selectFrom(EntityAlias, Class, Path...)}.
    */
-  public JpqlSelectStatementImpl(EntityManager entityManager, SqlDialect dialect, EntityAlias<?> alias,
-      Function<T, E> mapper, Class<E> toClass, PropertyPath<?>... constructorArgs) {
+  public JpqlSelectStatementImpl(EntityManager entityManager, SqlDialect dialect, EntityAlias<?> alias, Function<T, E> mapper, Class<E> toClass,
+      PropertyPath<?>... constructorArgs) {
     super(dialect, alias, mapper, toClass, constructorArgs);
     this.entityManager = entityManager;
   }
@@ -76,8 +74,7 @@ public class JpqlSelectStatementImpl<E, T> extends AbstractSelectStatement<E, Jp
    *        {@link net.sf.mmm.jpa.api.query.statenent.jpql.JpqlStatementFactory#selectFrom(EntityAlias, Class, PropertyPath...)}
    *        .
    */
-  public JpqlSelectStatementImpl(EntityManager entityManager, SqlDialect dialect, EntityAlias<?> alias,
-      Function<T, E> mapper, PropertyPath<?>... paths) {
+  public JpqlSelectStatementImpl(EntityManager entityManager, SqlDialect dialect, EntityAlias<?> alias, Function<T, E> mapper, PropertyPath<?>... paths) {
     super(dialect, alias, mapper, paths);
     this.entityManager = entityManager;
   }
@@ -93,8 +90,7 @@ public class JpqlSelectStatementImpl<E, T> extends AbstractSelectStatement<E, Jp
    *        {@link net.sf.mmm.util.query.api.statement.StatementFactory#selectFrom(EntityAlias, Class, PropertyPath...)}
    *        .
    */
-  public JpqlSelectStatementImpl(EntityManager entityManager, JpqlDialect dialect, EntityAlias<?> alias,
-      Function<T, E> mapper, PropertyPath<?>... paths) {
+  public JpqlSelectStatementImpl(EntityManager entityManager, JpqlDialect dialect, EntityAlias<?> alias, Function<T, E> mapper, PropertyPath<?>... paths) {
     super(dialect, alias, mapper, paths);
     this.entityManager = entityManager;
   }
@@ -111,8 +107,8 @@ public class JpqlSelectStatementImpl<E, T> extends AbstractSelectStatement<E, Jp
    * @param constructorArgs - see
    *        {@link net.sf.mmm.util.query.api.statement.StatementFactory#selectFrom(EntityAlias, Class, Path...)}.
    */
-  public JpqlSelectStatementImpl(EntityManager entityManager, JpqlDialect dialect, EntityAlias<?> alias,
-      Function<T, E> mapper, Class<E> toClass, PropertyPath<?>... constructorArgs) {
+  public JpqlSelectStatementImpl(EntityManager entityManager, JpqlDialect dialect, EntityAlias<?> alias, Function<T, E> mapper, Class<E> toClass,
+      PropertyPath<?>... constructorArgs) {
     super(dialect, alias, mapper, toClass, constructorArgs);
     this.entityManager = entityManager;
   }

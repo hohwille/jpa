@@ -24,7 +24,7 @@ import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlStatementFactory;
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlUpdateStatement;
 import net.sf.mmm.jpa.base.query.statement.jpql.Jpql;
 import net.sf.mmm.util.bean.api.BeanFactory;
-import net.sf.mmm.util.bean.api.id.Id;
+import net.sf.mmm.util.data.api.id.Id;
 import net.sf.mmm.util.query.SpringTestConfig;
 import net.sf.mmm.util.query.api.ListQuery;
 import net.sf.mmm.util.query.api.path.EntityAlias;
@@ -34,13 +34,9 @@ import net.sf.mmm.util.query.base.example.ContactEntity;
 
 /**
  * This is the test of {@link JpqlStatementFactory}.
- *
- * @author hohwille
- * @since 8.0.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@TestExecutionListeners({ TransactionalTestExecutionListener.class,
-DependencyInjectionTestExecutionListener.class })
+@TestExecutionListeners({ TransactionalTestExecutionListener.class, DependencyInjectionTestExecutionListener.class })
 @SpringApplicationConfiguration(classes = SpringTestConfig.class)
 @Transactional
 public class JpqlStatementFactoryTest extends Assertions {
@@ -81,11 +77,9 @@ public class JpqlStatementFactoryTest extends Assertions {
   private void checkUpdate(ContactBean prototype, Id contact2Id, Id contact3Id) {
 
     EntityAlias<Contact> contact = Jpql.alias(Contact.class, ContactEntity.class, prototype).as("c");
-    JpqlUpdateStatement<Contact> updateStatement = this.statementFactory.update(contact)
-        .where(contact.to(prototype.LastName()).like("%Pan_")).set(prototype.FirstName(), prototype.LastName())
-        .set(prototype.Age(), 60);
-    assertThat(updateStatement.getSql())
-        .isEqualTo("UPDATE ContactEntity AS c SET c.firstName = c.lastName, c.age = ?1 WHERE c.lastName LIKE ?2");
+    JpqlUpdateStatement<Contact> updateStatement = this.statementFactory.update(contact).where(contact.to(prototype.LastName()).like("%Pan_"))
+        .set(prototype.FirstName(), prototype.LastName()).set(prototype.Age(), 60);
+    assertThat(updateStatement.getSql()).isEqualTo("UPDATE ContactEntity AS c SET c.firstName = c.lastName, c.age = ?1 WHERE c.lastName LIKE ?2");
     long changes = updateStatement.execute();
     assertThat(changes).isEqualTo(2);
   }
@@ -93,11 +87,10 @@ public class JpqlStatementFactoryTest extends Assertions {
   private void checkDelete(ContactBean prototype, Id contact2Id, Id contact3Id) {
 
     EntityAlias<Contact> contact = Jpql.alias(Contact.class, ContactEntity.class, prototype).as("c");
-    JpqlDeleteStatement<Contact> deleteStatement = this.statementFactory.deleteFrom(contact)
-        .where(contact.to(prototype.FirstName()).like("%Pan_"), contact.to(prototype.Age()).geq(60));
+    JpqlDeleteStatement<Contact> deleteStatement = this.statementFactory.deleteFrom(contact).where(contact.to(prototype.FirstName()).like("%Pan_"),
+        contact.to(prototype.Age()).geq(60));
 
-    assertThat(deleteStatement.getSql())
-        .isEqualTo("DELETE FROM ContactEntity AS c WHERE c.firstName LIKE ?1 AND c.age >= ?2");
+    assertThat(deleteStatement.getSql()).isEqualTo("DELETE FROM ContactEntity AS c WHERE c.firstName LIKE ?1 AND c.age >= ?2");
     long changes = deleteStatement.execute();
     assertThat(changes).isEqualTo(2);
   }
@@ -114,22 +107,19 @@ public class JpqlStatementFactoryTest extends Assertions {
     checkSelect(prototype, contactId, contact, ContactBean.class);
   }
 
-  private <C extends Contact> void checkSelect(ContactBean prototype, Id contactId, EntityAlias<C> contact,
-      Class<C> type) {
+  private <C extends Contact> void checkSelect(ContactBean prototype, Id contactId, EntityAlias<C> contact, Class<C> type) {
 
     String firstName = "Peter";
     String lastNamePattern = "%Pan";
     Integer minAge = Integer.valueOf(18);
     Integer maxAge = Integer.valueOf(42);
     JpqlSelectStatement<C> selectStatement = this.statementFactory.selectFrom(contact)
-        .where(
-            contact.to(prototype.FirstName()).eq(firstName)
-                .and(contact.to(prototype.LastName()).like(lastNamePattern)
-                    .or(contact.to(prototype.Age()).between(minAge, maxAge))))
+        .where(contact.to(prototype.FirstName()).eq(firstName)
+            .and(contact.to(prototype.LastName()).like(lastNamePattern).or(contact.to(prototype.Age()).between(minAge, maxAge))))
         .orderBy(contact.to(prototype.Age()));
     ListQuery<C> query = selectStatement.query();
-    assertThat(query.getSql()).isEqualTo(
-        "SELECT c FROM ContactEntity AS c WHERE c.firstName = ?1 AND (c.lastName LIKE ?2 OR c.age BETWEEN ?3 AND ?4) ORDER BY c.age");
+    assertThat(query.getSql())
+        .isEqualTo("SELECT c FROM ContactEntity AS c WHERE c.firstName = ?1 AND (c.lastName LIKE ?2 OR c.age BETWEEN ?3 AND ?4) ORDER BY c.age");
     assertThat(selectStatement.getParameters()).containsExactly(firstName, lastNamePattern, minAge, maxAge);
     List<C> hits = query.execute();
     assertThat(hits).hasSize(1);

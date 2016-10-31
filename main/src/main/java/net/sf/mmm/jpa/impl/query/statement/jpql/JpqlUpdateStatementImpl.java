@@ -17,10 +17,9 @@ import net.sf.mmm.util.query.base.statement.SqlDialect;
  * @param <E> the generic type of the queried object (typically a {@link net.sf.mmm.util.bean.api.Bean}).
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
-public class JpqlUpdateStatementImpl<E> extends AbstractUpdateStatement<E, JpqlUpdateStatement<E>>
-    implements JpqlUpdateStatement<E> {
+public class JpqlUpdateStatementImpl<E> extends AbstractUpdateStatement<E, JpqlUpdateStatement<E>> implements JpqlUpdateStatement<E> {
 
   private final EntityManager entityManager;
 

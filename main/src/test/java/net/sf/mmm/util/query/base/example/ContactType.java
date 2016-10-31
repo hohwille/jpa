@@ -4,8 +4,6 @@ package net.sf.mmm.util.query.base.example;
 
 /**
  * A simple {@link Enum} for testing.
- *
- * @author hohwille
  */
 public enum ContactType {
 

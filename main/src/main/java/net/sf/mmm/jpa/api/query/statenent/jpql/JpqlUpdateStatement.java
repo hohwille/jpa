@@ -10,7 +10,7 @@ import net.sf.mmm.util.query.api.statement.UpdateStatement;
  * @param <E> the generic type of the queried object (an {@link javax.persistence.Entity}).
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
 public interface JpqlUpdateStatement<E> extends UpdateStatement<E, JpqlUpdateStatement<E>> {
 

@@ -6,7 +6,7 @@ package net.sf.mmm.jpa.base.query.statement.jpql;
  * {@link JpqlDialect} that does not {@link #quoteReference() quote} {@link #ref(String) references}.
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
 public class UnquotedJpqlDialect extends JpqlDialect {
 

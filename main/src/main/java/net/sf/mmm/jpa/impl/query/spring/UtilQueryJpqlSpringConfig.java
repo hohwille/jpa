@@ -14,7 +14,7 @@ import net.sf.mmm.util.bean.impl.spring.UtilBeanSpringConfig;
  * This is the Spring {@link Configuration} for {@link net.sf.mmm.util.pojo}.
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
 @Configuration
 @Import(UtilBeanSpringConfig.class)

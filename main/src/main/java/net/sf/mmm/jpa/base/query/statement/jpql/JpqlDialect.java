@@ -11,7 +11,7 @@ import net.sf.mmm.util.query.base.statement.SqlDialect;
  * (JPQL)</a>.
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
 public class JpqlDialect extends Object implements SqlDialect {
 

@@ -13,9 +13,9 @@ import net.sf.mmm.util.query.api.statement.SelectStatement;
  * @param <E> the generic type of the queried object (an {@link javax.persistence.Entity}).
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
-public interface JpqlSelectStatement<E> extends SelectStatement<E, JpqlSelectStatement<E>>,
-    FeatureAndFrom<JpqlSelectStatement<E>>, FeatureHaving<JpqlSelectStatement<E>> {
+public interface JpqlSelectStatement<E>
+    extends SelectStatement<E, JpqlSelectStatement<E>>, FeatureAndFrom<JpqlSelectStatement<E>>, FeatureHaving<JpqlSelectStatement<E>> {
 
 }

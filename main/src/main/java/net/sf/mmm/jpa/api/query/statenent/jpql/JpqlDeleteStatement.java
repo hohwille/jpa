@@ -10,7 +10,7 @@ import net.sf.mmm.util.query.api.statement.DeleteStatement;
  * @param <E> the generic type of the queried object (an {@link javax.persistence.Entity}).
  *
  * @author hohwille
- * @since 8.0.0
+ * @since 1.0.0
  */
 public interface JpqlDeleteStatement<E> extends DeleteStatement<E, JpqlDeleteStatement<E>> {
 

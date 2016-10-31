@@ -2,12 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package net.sf.mmm.util.query.base.example;
 
-import net.sf.mmm.util.bean.api.entity.Entity;
+import net.sf.mmm.util.data.api.entity.Entity;
 
 /**
  * Interface for a contact as an {@link Entity} for testing.
- *
- * @author hohwille
  */
 public interface Contact extends Entity {
 
