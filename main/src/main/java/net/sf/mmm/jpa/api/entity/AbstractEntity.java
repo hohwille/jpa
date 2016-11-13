@@ -10,8 +10,9 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
 import net.sf.mmm.util.data.api.entity.Entity;
-import net.sf.mmm.util.data.api.id.GenericId;
 import net.sf.mmm.util.data.api.id.Id;
+import net.sf.mmm.util.data.api.id.LongId;
+import net.sf.mmm.util.data.api.id.LongId;
 
 /**
  * Base implementation of a JPA {@link Entity}.
@@ -75,7 +76,7 @@ public class AbstractEntity implements Entity {
   public Id<?> getId() {
 
     if ((this.id == null) && (this.primaryKey != null)) {
-      this.id = GenericId.of(getEntityClass(), this.primaryKey.longValue(), this.version);
+      this.id = new LongId<>(getEntityClass(), this.primaryKey.longValue(), this.version);
     }
     return this.id;
   }
@@ -90,6 +91,9 @@ public class AbstractEntity implements Entity {
   @Override
   public void setId(Id<?> id) {
 
+    if (this.id == id) {
+      return;
+    }
     Id<?> newId = id;
     if (newId == null) {
       this.primaryKey = null;
@@ -99,13 +103,13 @@ public class AbstractEntity implements Entity {
       Class<? extends AbstractEntity> myType = getEntityClass();
       if (type == null) {
         newId = newId.withType(myType);
-      }
-      assert (type == myType);
-      long pk = newId.getId();
-      if (pk == Id.ID_UUID) {
-        this.primaryKey = null;
       } else {
-        this.primaryKey = Long.valueOf(pk);
+        assert (type == myType);
+      }
+      if (newId instanceof LongId) {
+        this.primaryKey = ((LongId<?>) newId).getId();
+      } else {
+        this.primaryKey = null;
       }
       this.version = newId.getVersion();
       if (this.version == Id.VERSION_LATEST) {
