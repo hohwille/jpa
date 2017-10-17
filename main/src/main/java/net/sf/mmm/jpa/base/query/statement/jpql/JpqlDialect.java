@@ -2,13 +2,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package net.sf.mmm.jpa.base.query.statement.jpql;
 
-import net.sf.mmm.util.property.api.ReadableProperty;
-import net.sf.mmm.util.query.base.statement.SqlDialect;
+import net.sf.mmm.property.api.ReadableProperty;
+import net.sf.mmm.query.api.statement.SqlDialect;
 
 /**
  * The implementation of {@link SqlDialect} for
- * <a href="http://docs.oracle.com/cd/E12839_01/apirefs.1111/e13946/ejb3_langref.html">Java Persistence Query Language
- * (JPQL)</a>.
+ * <a href="http://docs.oracle.com/cd/E12839_01/apirefs.1111/e13946/ejb3_langref.html">Java Persistence Query
+ * Language (JPQL)</a>.
  *
  * @author hohwille
  * @since 1.0.0
@@ -22,6 +22,7 @@ public class JpqlDialect extends Object implements SqlDialect {
    * The constructor.
    */
   public JpqlDialect() {
+
     super();
   }
 

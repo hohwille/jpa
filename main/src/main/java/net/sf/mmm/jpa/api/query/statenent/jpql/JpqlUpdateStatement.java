@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package net.sf.mmm.jpa.api.query.statenent.jpql;
 
-import net.sf.mmm.util.query.api.statement.UpdateStatement;
+import net.sf.mmm.query.api.statement.UpdateStatement;
 
 /**
  * Extension of a regular {@link UpdateStatement} for {@link net.sf.mmm.jpa.base.query.statement.jpql.Jpql JPQL}.

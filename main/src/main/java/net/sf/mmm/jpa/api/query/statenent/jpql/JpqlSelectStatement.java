@@ -2,9 +2,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package net.sf.mmm.jpa.api.query.statenent.jpql;
 
-import net.sf.mmm.util.query.api.feature.FeatureAndFrom;
-import net.sf.mmm.util.query.api.feature.FeatureHaving;
-import net.sf.mmm.util.query.api.statement.SelectStatement;
+import net.sf.mmm.query.api.feature.FeatureAndFrom;
+import net.sf.mmm.query.api.feature.FeatureHaving;
+import net.sf.mmm.query.api.statement.SelectStatement;
 
 /**
  * Extends a regular {@link SelectStatement} with advanced features like

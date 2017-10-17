@@ -6,15 +6,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlUpdateStatement;
-import net.sf.mmm.util.query.api.path.EntityAlias;
-import net.sf.mmm.util.query.base.feature.FeatureSetImpl;
-import net.sf.mmm.util.query.base.statement.AbstractUpdateStatement;
-import net.sf.mmm.util.query.base.statement.SqlDialect;
+import net.sf.mmm.query.api.path.EntityAlias;
+import net.sf.mmm.query.api.statement.SqlDialect;
+import net.sf.mmm.query.base.feature.FeatureSetImpl;
+import net.sf.mmm.query.base.statement.AbstractUpdateStatement;
 
 /**
  * Implementation of {@link JpqlUpdateStatement}.
  *
- * @param <E> the generic type of the queried object (typically a {@link net.sf.mmm.util.bean.api.Bean}).
+ * @param <E> the generic type of the queried object (typically a {@link net.sf.mmm.bean.api.Bean}).
  *
  * @author hohwille
  * @since 1.0.0
@@ -31,6 +31,7 @@ public class JpqlUpdateStatementImpl<E> extends AbstractUpdateStatement<E, JpqlU
    * @param alias - see {@link #getAlias()}.
    */
   public JpqlUpdateStatementImpl(EntityManager entityManager, SqlDialect dialect, EntityAlias<E> alias) {
+
     super(dialect, alias);
     this.entityManager = entityManager;
   }

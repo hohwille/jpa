@@ -8,16 +8,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import net.sf.mmm.bean.impl.spring.BeanSpringConfig;
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlStatementFactory;
 import net.sf.mmm.jpa.base.query.statement.jpql.UnquotedJpqlDialect;
 import net.sf.mmm.jpa.impl.query.statement.jpql.JpqlStatementFactoryImpl;
-import net.sf.mmm.util.bean.impl.spring.UtilBeanSpringConfig;
 
 /**
  * Spring {@link Configuration} for the tests.
  */
 @Configuration
-@Import(UtilBeanSpringConfig.class)
+@Import(BeanSpringConfig.class)
 @EntityScan
 @SpringBootApplication
 public class SpringTestConfig {

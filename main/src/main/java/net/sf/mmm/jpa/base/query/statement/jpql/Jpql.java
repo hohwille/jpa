@@ -4,10 +4,8 @@ package net.sf.mmm.jpa.base.query.statement.jpql;
 
 import javax.persistence.Entity;
 
-import net.sf.mmm.util.bean.api.Bean;
-import net.sf.mmm.util.bean.api.BeanFactory;
-import net.sf.mmm.util.query.api.path.EntityAlias;
-import net.sf.mmm.util.query.base.path.Alias;
+import net.sf.mmm.query.api.path.EntityAlias;
+import net.sf.mmm.query.base.path.Alias;
 
 /**
  * Helper class with {@link JpqlDialect JPQL} specific functions.
@@ -33,9 +31,10 @@ public final class Jpql {
   /**
    * @param <T> the generic type of the common {@link net.sf.mmm.util.data.api.entity.Entity} interface.
    * @param <E> the generic type of the JPA {@link Entity} {@link Class}.
-   * @param <B> the generic type of the {@link net.sf.mmm.util.bean.api.entity.EntityBean} interface.
+   * @param <B> the generic type of the {@link net.sf.mmm.bean.api.entity.EntityBean} interface.
    * @param entityClass the {@link Entity} {@link Class}.
-   * @param beanPrototype the {@link Bean} {@link BeanFactory#createPrototype(Class) prototype}.
+   * @param beanPrototype the {@link net.sf.mmm.bean.api.Bean}
+   *        {@link net.sf.mmm.bean.api.BeanFactory#createPrototype(Class) prototype}.
    * @return the corresponding {@link EntityAlias}.
    */
   public static <T, E extends T, B extends T> EntityAlias<B> alias(Class<E> entityClass, B beanPrototype) {
@@ -47,10 +46,11 @@ public final class Jpql {
   /**
    * @param <T> the generic type of the common {@link net.sf.mmm.util.data.api.entity.Entity} interface.
    * @param <E> the generic type of the JPA {@link Entity} {@link Class}.
-   * @param <B> the generic type of the {@link net.sf.mmm.util.bean.api.entity.EntityBean} interface.
+   * @param <B> the generic type of the {@link net.sf.mmm.bean.api.entity.EntityBean} interface.
    * @param entityInterface the {@link net.sf.mmm.util.data.api.entity.Entity} interface.
    * @param entityClass the {@link Entity} {@link Class}.
-   * @param beanPrototype the {@link Bean} {@link BeanFactory#createPrototype(Class) prototype}.
+   * @param beanPrototype the {@link net.sf.mmm.bean.api.Bean}
+   *        {@link net.sf.mmm.bean.api.BeanFactory#createPrototype(Class) prototype}.
    * @return the corresponding {@link EntityAlias}.
    */
   public static <T, E extends T, B extends T> EntityAlias<T> alias(Class<T> entityInterface, Class<E> entityClass, B beanPrototype) {

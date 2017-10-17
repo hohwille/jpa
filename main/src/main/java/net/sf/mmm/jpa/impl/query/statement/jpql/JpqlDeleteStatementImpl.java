@@ -6,14 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlDeleteStatement;
-import net.sf.mmm.util.query.api.path.EntityAlias;
-import net.sf.mmm.util.query.base.statement.AbstractDeleteStatement;
-import net.sf.mmm.util.query.base.statement.SqlDialect;
+import net.sf.mmm.query.api.path.EntityAlias;
+import net.sf.mmm.query.api.statement.SqlDialect;
+import net.sf.mmm.query.base.statement.AbstractDeleteStatement;
 
 /**
  * Implementation of {@link JpqlDeleteStatement}.
  *
- * @param <E> the generic type of the queried object (typically a {@link net.sf.mmm.util.bean.api.Bean}).
+ * @param <E> the generic type of the queried object (typically a {@link net.sf.mmm.bean.api.Bean}).
  *
  * @author hohwille
  * @since 1.0.0
@@ -30,6 +30,7 @@ public class JpqlDeleteStatementImpl<E> extends AbstractDeleteStatement<E, JpqlD
    * @param alias - see {@link #getAlias()}.
    */
   public JpqlDeleteStatementImpl(EntityManager entityManager, SqlDialect dialect, EntityAlias<E> alias) {
+
     super(dialect, alias);
     this.entityManager = entityManager;
   }

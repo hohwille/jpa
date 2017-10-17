@@ -10,17 +10,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import net.sf.mmm.bean.api.Bean;
+import net.sf.mmm.bean.api.mapping.GenericPojoBeanMapper;
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlDeleteStatement;
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlSelectStatement;
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlStatementFactory;
 import net.sf.mmm.jpa.api.query.statenent.jpql.JpqlUpdateStatement;
 import net.sf.mmm.jpa.base.query.statement.jpql.JpqlDialect;
-import net.sf.mmm.util.bean.api.Bean;
-import net.sf.mmm.util.bean.api.mapping.GenericPojoBeanMapper;
-import net.sf.mmm.util.property.api.path.PropertyPath;
-import net.sf.mmm.util.query.api.path.EntityAlias;
-import net.sf.mmm.util.query.base.statement.AbstractStatement;
-import net.sf.mmm.util.query.base.statement.AbstractStatementFactory;
+import net.sf.mmm.property.api.path.PropertyPath;
+import net.sf.mmm.query.api.path.EntityAlias;
+import net.sf.mmm.query.base.statement.AbstractStatement;
+import net.sf.mmm.query.base.statement.AbstractStatementFactory;
 
 /**
  * This is the interface
@@ -40,6 +40,7 @@ public class JpqlStatementFactoryImpl extends AbstractStatementFactory implement
    * The constructor.
    */
   public JpqlStatementFactoryImpl() {
+
     this(null, JpqlDialect.INSTANCE);
   }
 
@@ -49,6 +50,7 @@ public class JpqlStatementFactoryImpl extends AbstractStatementFactory implement
    * @param dialect the {@link JpqlDialect}.
    */
   public JpqlStatementFactoryImpl(JpqlDialect dialect) {
+
     this(null, dialect);
   }
 
@@ -58,6 +60,7 @@ public class JpqlStatementFactoryImpl extends AbstractStatementFactory implement
    * @param entityManager the {@link EntityManager}.
    */
   public JpqlStatementFactoryImpl(EntityManager entityManager) {
+
     this(entityManager, JpqlDialect.INSTANCE);
   }
 
@@ -68,6 +71,7 @@ public class JpqlStatementFactoryImpl extends AbstractStatementFactory implement
    * @param dialect the {@link JpqlDialect}.
    */
   public JpqlStatementFactoryImpl(EntityManager entityManager, JpqlDialect dialect) {
+
     super();
     this.entityManager = entityManager;
     this.dialect = dialect;
